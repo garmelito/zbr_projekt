@@ -56,6 +56,7 @@ void policz();
 //Metody rysuj¹ce poszczególne rzuty.
 void kresl_xy();
 
+bool sprawdz_poprawnosc();
 
 int main()
 {
@@ -89,8 +90,35 @@ int main()
     trajekt_y = new double[liczba_krokow_symulacji];
     trajekt_z = new double[liczba_krokow_symulacji];
 
+    if (sprawdz_poprawnosc()) {
+        std::cout << "Dla podanych danych wejsciowych nie mozna zrealizowac trajektorii";
+        return 1;
+    }
+
     policz();
     kresl_xy();
+}
+
+bool sprawdz_poprawnosc()
+{
+    for (int i = 0; i < liczba_krokow_symulacji; i++)
+    {
+        if (isnan(q1[i]))
+            return true;
+        if (isnan(q2[i]))
+            return true;
+        if (isnan(q3[i]))
+            return true;
+        if (isnan(q4[i]))
+            return true;
+        if (isnan(q5[i]))
+            return true;
+        if (isnan(q23[i]))
+            return true;
+        if (isnan(q234[i]))
+            return true;
+    }
+    return false;
 }
 
 //Implementacja metod przeliczaj¹cych wartoœci k¹tów z stopni na radiany i odwrotnie,

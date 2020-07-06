@@ -615,6 +615,186 @@ void kresl_xy()
             window.draw(text5);
         }
 
+        //zx
+        {
+            Punkt_poprzedni.x = 800;
+            Punkt_poprzedni.y = 720;
+
+            //1
+            sf::CircleShape circle1(8);
+            sf::Rect<float> size1 = circle1.getGlobalBounds();
+            circle1.setOrigin(size1.width / 2, size1.height / 2);
+            circle1.setPosition(Punkt_poprzedni);
+            sf::Texture texture1;
+            texture1.loadFromFile("../resources/textures/1.png");
+            circle1.setTexture(&texture1);
+
+            sf::Text text1(std::to_string(int(przelicz_na_kat(q1[i]))), font, 24);
+            text1.setPosition(Punkt_poprzedni);
+
+            Punkt_nastepny.x = Punkt_poprzedni.x + int(l1 * cos(q1[i]) / S + 0.5);
+            Punkt_nastepny.y = Punkt_poprzedni.y;
+
+            sf::Vertex line1[] =
+            {
+                sf::Vertex(Punkt_poprzedni),
+                sf::Vertex(Punkt_nastepny)
+            };
+            //2
+            sf::CircleShape circle2(8);
+            sf::Rect<float> size2 = circle2.getGlobalBounds();
+            circle2.setOrigin(size2.width / 2, size2.height / 2);
+            circle2.setPosition(Punkt_nastepny);
+            sf::Texture texture2;
+            texture2.loadFromFile("../resources/textures/2.png");
+            circle2.setTexture(&texture2);
+
+            sf::Text text2(std::to_string(int(przelicz_na_kat(q2[i]))), font, 24);
+            text2.setPosition(Punkt_nastepny);
+
+            Punkt_poprzedni = Punkt_nastepny;
+            Punkt_nastepny.x = Punkt_poprzedni.x + int(d * sin(q1[i]) / S + 0.5);
+            Punkt_nastepny.y = Punkt_poprzedni.y;
+
+            sf::Vertex line2[] =
+            {
+                sf::Vertex(Punkt_poprzedni),
+                sf::Vertex(Punkt_nastepny)
+            };
+
+            Punkt_poprzedni = Punkt_nastepny;
+            Punkt_nastepny.x = Punkt_poprzedni.x + int(l2 * cos(q1[i]) * cos(q2[i]) / S + 0.5);
+            Punkt_nastepny.y = Punkt_poprzedni.y - int(l2 * sin(q2[i]) / S + 0.5);
+
+            sf::Vertex line3[] =
+            {
+                sf::Vertex(Punkt_poprzedni),
+                sf::Vertex(Punkt_nastepny)
+            };
+
+            Punkt_poprzedni = Punkt_nastepny;
+            Punkt_nastepny.x = Punkt_poprzedni.x - int((d - e) * sin(q1[i]) / S + 0.5);
+            Punkt_nastepny.y = Punkt_poprzedni.y;
+
+            sf::Vertex line4[] =
+            {
+                sf::Vertex(Punkt_poprzedni),
+                sf::Vertex(Punkt_nastepny)
+            };
+            //3
+            sf::CircleShape circle3(8);
+            sf::Rect<float> size3 = circle3.getGlobalBounds();
+            circle3.setOrigin(size3.width / 2, size3.height / 2);
+            circle3.setPosition(Punkt_nastepny);
+            sf::Texture texture3;
+            texture3.loadFromFile("../resources/textures/3.png");
+            circle3.setTexture(&texture3);
+
+            sf::Text text3(std::to_string(int(przelicz_na_kat(q3[i]))), font, 24);
+            text3.setPosition(Punkt_nastepny);
+
+            Punkt_poprzedni = Punkt_nastepny;
+            Punkt_nastepny.x = Punkt_poprzedni.x + int(l3 * cos(q23[i]) * cos(q1[i]) / S + 0.5);
+            Punkt_nastepny.y = Punkt_poprzedni.y - int(l3 * sin(q23[i]) / S + 0.5);
+
+            sf::Vertex line5[] =
+            {
+                sf::Vertex(Punkt_poprzedni),
+                sf::Vertex(Punkt_nastepny)
+            };
+            //4
+            sf::CircleShape circle4(8);
+            sf::Rect<float> size4 = circle4.getGlobalBounds();
+            circle4.setOrigin(size4.width / 2, size4.height / 2);
+            circle4.setPosition(Punkt_nastepny);
+            sf::Texture texture4;
+            texture4.loadFromFile("../resources/textures/4.png");
+            circle4.setTexture(&texture4);
+
+            sf::Text text4(std::to_string(int(przelicz_na_kat(q4[i]))), font, 24);
+            text4.setPosition(Punkt_nastepny);
+
+            Punkt_poprzedni = Punkt_nastepny;
+            Punkt_nastepny.x = Punkt_poprzedni.x + int(l4 * cos(q234[i]) * cos(q1[i]) / S + 0.5);
+            Punkt_nastepny.y = Punkt_poprzedni.y - int(l4 * sin(q234[i]) / S + 0.5);
+
+            sf::Vertex line6[] =
+            {
+                sf::Vertex(Punkt_poprzedni),
+                sf::Vertex(Punkt_nastepny)
+            };
+            //5
+            sf::CircleShape circle5(8);
+            sf::Rect<float> size5 = circle5.getGlobalBounds();
+            circle5.setOrigin(size5.width / 2, size5.height / 2);
+            circle5.setPosition(Punkt_nastepny);
+            sf::Texture texture5;
+            texture5.loadFromFile("../resources/textures/5.png");
+            circle5.setTexture(&texture5);
+
+            sf::Text text5(std::to_string(int(przelicz_na_kat(q5[i]))), font, 24);
+            text5.setPosition(Punkt_nastepny);
+
+            Punkt_poprzedni = Punkt_nastepny;
+            Punkt_nastepny.x = Punkt_poprzedni.x + int(l5 * cos(przelicz_na_rad(teta_pod)) * cos(przelicz_na_rad(psi_pod)) / S + 0.5);
+            Punkt_nastepny.y = Punkt_poprzedni.y - int(l5 * sin(przelicz_na_rad(teta_pod)) / S + 0.5); //?
+
+            sf::Vertex line7[] =
+            {
+                sf::Vertex(Punkt_poprzedni),
+                sf::Vertex(Punkt_nastepny)
+            };
+            //6
+            sf::CircleShape circle6(8);
+            sf::Rect<float> size6 = circle6.getGlobalBounds();
+            circle6.setOrigin(size6.width / 2, size6.height / 2);
+            circle6.setPosition(Punkt_nastepny);
+            sf::Texture texture6;
+            texture6.loadFromFile("../resources/textures/6.png");
+            circle6.setTexture(&texture6);
+
+            Punkt_poprzedni = Punkt_nastepny;
+            Punkt_nastepny.x = Punkt_poprzedni.x + int((l6)*cos(przelicz_na_rad(teta_pod)) * cos(przelicz_na_rad(psi_pod)) / S + 0.5);
+            Punkt_nastepny.y = Punkt_poprzedni.y - int((l6)*sin(przelicz_na_rad(teta_pod)) / S + 0.5); //?
+
+            sf::Vertex line8[] =
+            {
+                sf::Vertex(Punkt_poprzedni),
+                sf::Vertex(Punkt_nastepny)
+            };
+            //7
+            sf::CircleShape circle7(8);
+            sf::Rect<float> size7 = circle7.getGlobalBounds();
+            circle7.setOrigin(size7.width / 2, size7.height / 2);
+            circle7.setPosition(Punkt_nastepny);
+            sf::Texture texture7;
+            texture7.loadFromFile("../resources/textures/7.png");
+            circle7.setTexture(&texture7);
+
+            window.draw(line1, 2, sf::Lines);
+            window.draw(line2, 2, sf::Lines);
+            window.draw(line3, 2, sf::Lines);
+            window.draw(line4, 2, sf::Lines);
+            window.draw(line5, 2, sf::Lines);
+            window.draw(line6, 2, sf::Lines);
+            window.draw(line7, 2, sf::Lines);
+            window.draw(line8, 2, sf::Lines);
+
+            window.draw(circle1);
+            window.draw(circle2);
+            window.draw(circle3);
+            window.draw(circle4);
+            window.draw(circle5);
+            window.draw(circle6);
+            window.draw(circle7);
+
+            window.draw(text1);
+            window.draw(text2);
+            window.draw(text3);
+            window.draw(text4);
+            window.draw(text5);
+        }
+
         window.display();
         Sleep(300);
     }

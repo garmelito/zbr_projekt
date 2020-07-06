@@ -1,4 +1,3 @@
-#include <cmath>                //round
 #include <conio.h>
 #include <iostream>
 #define _USE_MATH_DEFINES
@@ -268,7 +267,7 @@ void kresl_xy()
         texture1.loadFromFile("../resources/textures/1.png");
         circle1.setTexture(&texture1);
 
-        sf::Text text1(std::to_string(przelicz_na_kat(q1[i])), font, 24);
+        sf::Text text1(std::to_string(int(przelicz_na_kat(q1[i]))), font, 24);
         text1.setPosition(Punkt_poprzedni);
 
         Punkt_nastepny.x = Punkt_poprzedni.x + int(l1 * cos(q1[i]) / S + 0.5);
@@ -288,7 +287,7 @@ void kresl_xy()
         texture2.loadFromFile("../resources/textures/2.png");
         circle2.setTexture(&texture2);
 
-        sf::Text text2(std::to_string(przelicz_na_kat(q2[i])), font, 24);
+        sf::Text text2(std::to_string(int(przelicz_na_kat(q2[i]))), font, 24);
         text2.setPosition(Punkt_nastepny);
 
         Punkt_poprzedni = Punkt_nastepny;
@@ -329,7 +328,7 @@ void kresl_xy()
         texture3.loadFromFile("../resources/textures/3.png");
         circle3.setTexture(&texture3);
 
-        sf::Text text3(std::to_string(przelicz_na_kat(q3[i])), font, 24);
+        sf::Text text3(std::to_string(int(przelicz_na_kat(q3[i]))), font, 24);
         text3.setPosition(Punkt_nastepny);
 
         Punkt_poprzedni = Punkt_nastepny;
@@ -350,7 +349,7 @@ void kresl_xy()
         texture4.loadFromFile("../resources/textures/4.png");
         circle4.setTexture(&texture4);
 
-        sf::Text text4(std::to_string(przelicz_na_kat(q4[i])), font, 24);
+        sf::Text text4(std::to_string(int(przelicz_na_kat(q4[i]))), font, 24);
         text4.setPosition(Punkt_nastepny);
 
         Punkt_poprzedni = Punkt_nastepny;
@@ -371,7 +370,7 @@ void kresl_xy()
         texture5.loadFromFile("../resources/textures/5.png");
         circle5.setTexture(&texture5);
 
-        sf::Text text5(std::to_string(przelicz_na_kat(q5[i])), font, 24);
+        sf::Text text5(std::to_string(int(przelicz_na_kat(q5[i]))), font, 24);
         text5.setPosition(Punkt_nastepny);
 
         Punkt_poprzedni = Punkt_nastepny;

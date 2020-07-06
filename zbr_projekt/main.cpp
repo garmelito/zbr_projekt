@@ -60,28 +60,21 @@ void kresl_xy();
 int main()
 {
     //Pocz¹tkowe wartoœci zmiennych otrzymywanych od u¿ytkownika
-    psi_pod = 30;
-    teta_pod = 60;
     delta1 = -1;
     delta2 = -1;
     delta5 = -1;
-    l1 = 200;
-    l2 = 600;
-    l3 = 600;
-    l4 = 400;
-    l5 = 300;
-    l6 = 200;
-    e = 100;
-    d = 200;
-    X_r = 100;
-    Y_r = 400;
-    Z_r = 100;
-    X_k = -500;
-    Y_k = 500;
-    Z_k = 500;
-
+    std::cout << "Podaj prosze wartosci parametrow geometrycznych czesci regionalnej mechanizmu (l1, l2, l3, d, e) [mm]: \n";
+    std::cin >> l1 >> l2 >> l3 >> d >> e;
+    std::cout << "Podaj prosze wartosci parametrow geometrycznych czesci lokalnej mechanizmu (l4, l5, l6) [mm]: \n";
+    std::cin >> l4 >> l5 >> l6;
+    std::cout << "Podaj prosze wektor podejscia czlonow czesci lokalnej mechanizmu (psi, theta) [stopnie]: \n";
+    std::cin >> psi_pod >> teta_pod;
+    std::cout << "Podaj prosze wspolrzedne punktow startowego i koncowego (Xr, Yr, Zr, Xk, Yk, Zk) [mm]: \n";
+    std::cin >> X_r >> Y_r >> Z_r >> X_k >> Y_k >> Z_k;
     //Pocz¹tkowe parametry symulacji.
-    liczba_krokow_symulacji = 30;
+    std::cout << "Podaj prosze liczbe krokow symulacji: \n";
+    std::cin >> liczba_krokow_symulacji;
+
 
     //Zalokowanie pamiêci dynamicznej na zmienne w zale¿noœci od liczby punktów tworz¹cych trajektorie.
     q1 = new double[liczba_krokow_symulacji];
